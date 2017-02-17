@@ -7,4 +7,4 @@
 ## Manual installation
 
     mkdir -p "$HOME/.hammerspoon"
-    ln -isv "$DOT/**/*.lua" "$HOME/.hammerspoon"
+    ln -isv "$DOT/.hammerspoon/*" "$HOME/.hammerspoon"

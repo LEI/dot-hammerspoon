@@ -1,4 +1,4 @@
 {
     "dir": ".hammerspoon",
-    "link": ".hammerspoon/**/*.lua"
+    "link": ".hammerspoon/*"
 }
