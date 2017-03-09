@@ -37,14 +37,18 @@ end
 local function watchScreens()
     local screens = hs.screen.allScreens()
 
+    local log = hs.logger.new('Screen Watcher')
+    log.i("nbScreens:", #screens)
+    log.i("lastScreen:", lastCount)
+
     if #screens ~= lastCount then
         if #screens == 1 then
             screens[2] = screens[1]
         end
+        applyWindowLayout(screens)
     end
 
     -- hs.brightness.get()
-    applyWindowLayout(screens)
 
     lastCount = #screens
 end
