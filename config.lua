@@ -5,7 +5,7 @@ local config = {}
 config.modules = {
     -- Applications
     "application",
-    "redshift",
+    --"redshift",
     "caffeine",
     "volumes",
     -- Extensions
