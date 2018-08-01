@@ -1,6 +1,10 @@
 ---
 role:
   pkg:
-    - hammerspoon
+    - name: hammerspoon
+      os: ["!darwin"]
+    - name: hammerspoon
+      type: cask
+      os: ["!darwin"]
   link:
     - "*:.hammerspoon"
