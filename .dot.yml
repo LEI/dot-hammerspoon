@@ -4,5 +4,6 @@ role:
     - name: hammerspoon
       type: cask
       # os: ["darwin"]
+  dir: .hammerspoon
   link:
     - "*:.hammerspoon"
