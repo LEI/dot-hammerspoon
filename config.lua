@@ -5,7 +5,7 @@ local config = {}
 config.modules = {
     -- Applications
     "application",
-    --"redshift",
+    --"redshift", -- https://github.com/jenghis/nshift
     "caffeine",
     "volumes",
     -- Extensions
