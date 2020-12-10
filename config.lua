@@ -3,13 +3,13 @@
 local config = {}
 
 config.modules = {
+    "appearance", -- redshift: https://github.com/jenghis/nshift
     -- Applications
     "application",
-    --"redshift", -- https://github.com/jenghis/nshift
     "caffeine",
     "volumes",
     -- Extensions
-    "window",
+    -- "window", -- Replaced by WindowHalfsAndThirds
     -- Settings
     "reload",
     "layout",
@@ -68,53 +68,53 @@ config.bindings = {
 
     -- https://github.com/rtoshiro/hammerspoon-init/blob/master/init.lua
 
-    -- Top half
-    { mods = mash, key = "K", fn = function()
-        local win = hs.window.focusedWindow()
-        win:up()
-    end },
+    -- -- Top half
+    -- { mods = mash, key = "K", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:up()
+    -- end },
 
-    -- Right half
-    { mods = mash, key = "L", fn = function()
-        local win = hs.window.focusedWindow()
-        win:right()
-    end },
+    -- -- Right half
+    -- { mods = mash, key = "L", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:right()
+    -- end },
 
-    -- Bottom half
-    { mods = mash, key = "J", fn = function()
-        local win = hs.window.focusedWindow()
-        win:down()
-    end },
+    -- -- Bottom half
+    -- { mods = mash, key = "J", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:down()
+    -- end },
 
-    -- Left half
-    { mods = mash, key = "H", fn = function()
-        local win = hs.window.focusedWindow()
-        win:left()
-    end },
+    -- -- Left half
+    -- { mods = mash, key = "H", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:left()
+    -- end },
 
-    -- Top right corner
-    { mods = super, key = "K", fn = function()
-        local win = hs.window.focusedWindow()
-        win:upRight()
-    end },
+    -- -- Top right corner
+    -- { mods = super, key = "K", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:upRight()
+    -- end },
 
-    -- Bottom right corner
-    { mods = super, key = "L", fn = function()
-        local win = hs.window.focusedWindow()
-        win:downRight()
-    end },
+    -- -- Bottom right corner
+    -- { mods = super, key = "L", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:downRight()
+    -- end },
 
-    -- Bottom left corner
-    { mods = super, key = "J", fn = function()
-        local win = hs.window.focusedWindow()
-        win:downLeft()
-    end },
+    -- -- Bottom left corner
+    -- { mods = super, key = "J", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:downLeft()
+    -- end },
 
-    -- Top left corner
-    { mods = super, key = "H", fn = function()
-        local win = hs.window.focusedWindow()
-        win:upLeft()
-    end },
+    -- -- Top left corner
+    -- { mods = super, key = "H", fn = function()
+    --     local win = hs.window.focusedWindow()
+    --     win:upLeft()
+    -- end },
 
     -- Window movements using nethack movement keys
     --  y   k   u
@@ -191,10 +191,12 @@ config.bindings = {
 
     -- Window navigation
 
-    { mods = super, key = "Up", fn = hs.window.focusWindowNorth },
-    { mods = super, key = "Right", fn = hs.window.focusWindowEast },
-    { mods = super, key = "Down", fn = hs.window.focusWindowSouth },
-    { mods = super, key = "Left", fn = hs.window.focusWindowWest },
+    -- FIXME: Contents/Resources/extensions/hs/hotkey/init.lua:408:
+    -- At least one of pressedfn, releasedfn or repeatfn must be a function
+    -- { mods = super, key = "Up", fn = hs.window.focusWindowNorth },
+    -- { mods = super, key = "Right", fn = hs.window.focusWindowEast },
+    -- { mods = super, key = "Down", fn = hs.window.focusWindowSouth },
+    -- { mods = super, key = "Left", fn = hs.window.focusWindowWest },
 
     -- FIXME: attempt to index a nil value (local 'self')
     -- hs.hotkey.bind(hyper, "Up", hs.window.moveOneScreenNorth)
@@ -226,5 +228,34 @@ config.bindings = {
         ]])
     end },
 }
+
+local SpoonInstall = hs.loadSpoon('SpoonInstall')
+SpoonInstall:installSpoonFromRepo('WindowHalfsAndThirds')
+local WindowHalfsAndThirds = hs.loadSpoon('WindowHalfsAndThirds')
+WindowHalfsAndThirds:bindHotkeys({
+    -- left_half   = { {"ctrl",        "cmd"}, "Left" },
+    -- right_half  = { {"ctrl",        "cmd"}, "Right" },
+    -- top_half    = { {"ctrl",        "cmd"}, "Up" },
+    -- bottom_half = { {"ctrl",        "cmd"}, "Down" },
+    -- third_left  = { {"ctrl", "alt"       }, "Left" },
+    -- third_right = { {"ctrl", "alt"       }, "Right" },
+    -- third_up    = { {"ctrl", "alt"       }, "Up" },
+    -- third_down  = { {"ctrl", "alt"       }, "Down" },
+    -- top_left    = { {"ctrl",        "cmd"}, "1" },
+    -- top_right   = { {"ctrl",        "cmd"}, "2" },
+    -- bottom_left = { {"ctrl",        "cmd"}, "3" },
+    -- bottom_right= { {"ctrl",        "cmd"}, "4" },
+    -- max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
+    -- max         = { {"ctrl", "alt", "cmd"}, "Up" },
+    -- undo        = { {        "alt", "cmd"}, "z" },
+    -- center      = { {        "alt", "cmd"}, "c" },
+    -- larger      = { {        "alt", "cmd", "shift"}, "Right" },
+    -- smaller     = { {        "alt", "cmd", "shift"}, "Left" },
+    top_half    = { mash, "K" },
+    right_half  = { mash, "L" },
+    bottom_half = { mash, "J" },
+    left_half   = { mash, "H" },
+    max_toggle  = { mash, "M" },
+})
 
 return config

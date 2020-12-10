@@ -29,7 +29,6 @@ super = {"cmd", "alt", "ctrl"}
 hyper = {"shift", "cmd", "alt", "ctrl"}
 
 config = import("config")
--- local log = hs.logger.new('init','debug')
 
 function config:get(key_path, default)
     local root = self
