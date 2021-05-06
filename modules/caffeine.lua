@@ -4,6 +4,31 @@
 
 local caffeine = hs.menubar.new()
 
+local modifiers = {}
+local character = "f19" -- "Right"
+local delay = 100000 -- Default: 200000 (200ms)
+
+function fn()
+    hs.eventtap.keyStroke(modifiers, character, delay)
+end
+
+local seconds = 60
+local timer = hs.timer.new(seconds, fn)
+
+function get()
+    return hs.caffeinate.get("displayIdle")
+end
+
+function toggle()
+    status = hs.caffeinate.toggle("displayIdle")
+    if status then
+        timer:start()
+    else
+        timer:stop()
+    end
+    return status
+end
+
 function setCaffeineDisplay(state)
     local icon = "caffeinIcon"
     if state then
@@ -13,13 +38,17 @@ function setCaffeineDisplay(state)
 end
 
 function caffeineClicked()
-    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+    setCaffeineDisplay(toggle())
 end
 
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
-    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+    setCaffeineDisplay(get())
 end
+
+-- SpoonInstall:installSpoonFromRepo('Caffeine')
+local Caffeine = hs.loadSpoon('Caffeine')
+Caffeine:start() -- Caffeine.setState(true)
 
 return {
     init = nil
