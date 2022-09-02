@@ -5,16 +5,18 @@ hs.layout.center = {0.1, 0.1, 0.8, 0.8}
 local function applyWindowLayout(screens)
     -- screens[2] -> attempt to index a nil value (field '?')
     local windowLayout = {
-        {"Activity Monitor", nil, screens[2]:name(), hs.layout.center, nil, nil},
-        -- {"Finder", nil, screens[1]:name(), hs.layout.center, nil, nil},
-        {"Firefox", nil, screens[1]:name(), hs.layout.maximized, nil, nil},
-        {"Google Chrome", "Postman", screens[2]:name(), hs.layout.center, nil, nil},
-        {"Google Chrome", nil, screens[2]:name(), hs.layout.maximized, nil, nil},
-        {"Mail", nil, screens[2]:name(), hs.layout.right50, nil, nil },
-        {"Sequel Pro", nil, screens[2]:name(), hs.layout.center, nil, nil},
-        {"Skype", nil, screens[1]:name(), hs.layout.left50, nil, nil },
-        {"Slack", nil, screens[1]:name(), hs.layout.center, nil, nil },
         {"Terminal", nil, screens[1]:name(), nil, nil, screens[1]:fullFrame()},
+        {"Google Chrome", nil, screens[1]:name(), nil, nil, nil},
+        {"Firefox", nil, screens[2]:name(), hs.layout.center, nil, nil},
+        {"Microsoft Teams", nil, screens[2]:name(), hs.layout.maximized, nil, nil},
+        {"Sequel Pro", nil, screens[2]:name(), hs.layout.center, nil, nil},
+        {"Spotify", nil, screens[2]:name(), hs.layout.center, nil, nil},
+        -- {"Activity Monitor", nil, screens[2]:name(), hs.layout.center, nil, nil},
+        -- {"Finder", nil, screens[1]:name(), hs.layout.center, nil, nil},
+        -- {"Google Chrome", "Postman", screens[2]:name(), hs.layout.center, nil, nil},
+        -- {"Mail", nil, screens[2]:name(), hs.layout.right50, nil, nil },
+        -- {"Skype", nil, screens[1]:name(), hs.layout.left50, nil, nil },
+        -- {"Slack", nil, screens[1]:name(), hs.layout.center, nil, nil },
     }
 
     hs.layout.apply(windowLayout)

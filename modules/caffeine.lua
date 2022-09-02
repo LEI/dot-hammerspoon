@@ -4,15 +4,17 @@
 
 local caffeine = hs.menubar.new()
 
-local modifiers = {}
+local modifiers = {} -- {"cmd"}
 local character = "f19" -- "Right"
 local delay = 100000 -- Default: 200000 (200ms)
 
 function fn()
-    hs.eventtap.keyStroke(modifiers, character, delay)
+    if hs.host.idleTime() > 60 then
+        hs.eventtap.keyStroke(modifiers, character, delay)
+    end
 end
 
-local seconds = 60
+local seconds = 30
 local timer = hs.timer.new(seconds, fn)
 
 function get()

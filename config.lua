@@ -230,6 +230,7 @@ config.bindings = {
 }
 
 local SpoonInstall = hs.loadSpoon('SpoonInstall')
+SpoonInstall:updateAllRepos() -- SpoonInstall:updateRepo()
 SpoonInstall:installSpoonFromRepo('WindowHalfsAndThirds')
 local WindowHalfsAndThirds = hs.loadSpoon('WindowHalfsAndThirds')
 WindowHalfsAndThirds:bindHotkeys({
@@ -257,5 +258,27 @@ WindowHalfsAndThirds:bindHotkeys({
     left_half   = { mash, "H" },
     max_toggle  = { mash, "M" },
 })
+
+SpoonInstall:installSpoonFromRepo('HCalendar')
+local HCalendar = hs.loadSpoon('HCalendar')
+
+-- SpoonInstall:installSpoonFromRepo('MountedVolumes')
+-- local MountedVolumes = hs.loadSpoon('MountedVolumes')
+-- MountedVolumes.checkInterval = 120
+-- MountedVolumes.enableEjectButton = false
+-- MountedVolumes.location = { x = 20, y = 22 }
+-- MountedVolumes.textStyle = { font = { name = "Menlo", size = 10 }, color = { alpha = 1.0 }, paragraphStyle = { alignment = "center" }, }
+-- MountedVolumes:show()
+
+-- SpoonInstall:installSpoonFromRepo('SpeedMenu')
+-- local SpeedMenu = hs.loadSpoon('SpeedMenu')
+-- SpeedMenu:init()
+-- SpeedMenu:start()
+
+-- SpoonInstall:installSpoonFromRepo('TimeMachineProgress')
+-- local TimeMachineProgress = hs.loadSpoon('TimeMachineProgress')
+-- -- TimeMachineProgress.backupIcon = '/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf'
+-- -- TimeMachineProgress.backupIcon = hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})
+-- TimeMachineProgress:start()
 
 return config

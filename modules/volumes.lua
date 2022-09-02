@@ -1,6 +1,8 @@
 -- Manage removable volumes
 -- https://github.com/heptal/dotfiles/blob/master/roles/hammerspoon/files/volumes.lua
 
+-- TODO? https://www.hammerspoon.org/Spoons/EjectMenu.html
+
 -- local std = require "hs.stdlib"
 keys = import("utils/keys")
 
