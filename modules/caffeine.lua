@@ -48,7 +48,9 @@ if caffeine then
     setCaffeineDisplay(get())
 end
 
--- SpoonInstall:installSpoonFromRepo('Caffeine')
+local SpoonInstall = hs.loadSpoon('SpoonInstall')
+SpoonInstall:installSpoonFromRepo('Caffeine')
+
 local Caffeine = hs.loadSpoon('Caffeine')
 Caffeine:start() -- Caffeine.setState(true)
 
