@@ -18,6 +18,12 @@ Link files to home directory
 
     ln -isv "~/.dot/hammerspoon/*" "$HOME/.hammerspoon"
 
+## Resources
+
+- https://github.com/koekeishiya/yabai
+- https://github.com/ianyh/Amethyst
+- https://github.com/leftwm/leftwm
+
 ## TODO
 
 - Redshift

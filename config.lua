@@ -40,7 +40,7 @@ local moveStep = 10
 config.bindings = {
     -- { mods = mash, key = "R", fn = hs.reload },
     -- { mods = mash, key = "G", fn = hs.grid.toggleShow },
-    { mods = mash, key = ",", fn = hs.hints.windowHints },
+    -- FIXME: conflicts with term { mods = mash, key = ",", fn = hs.hints.windowHints },
 
     -- Lock
     -- hs.hotkey.bind(hyper, "L", hs.caffeinate.startScreensaver
