@@ -3,7 +3,7 @@
 local config = {}
 
 config.modules = {
-    "appearance", -- redshift: https://github.com/jenghis/nshift
+    -- "appearance", -- redshift: https://github.com/jenghis/nshift
     -- Applications
     "application",
     "caffeine",
@@ -12,7 +12,7 @@ config.modules = {
     -- "window", -- Replaced by WindowHalfsAndThirds
     -- Settings
     "reload",
-    "layout",
+    -- "layout",
     "grid",
 }
 
@@ -45,8 +45,8 @@ config.bindings = {
     -- Lock
     -- hs.hotkey.bind(hyper, "L", hs.caffeinate.startScreensaver
 
-    -- Console
-    { mods = mash, key = "C", fn = hs.toggleConsole },
+    -- Console (conflicts with Passwords)
+    -- { mods = mash, key = "C", fn = hs.toggleConsole },
 
     -- Color picker
     { mods = super, key = "C", fn = function()
@@ -259,8 +259,8 @@ WindowHalfsAndThirds:bindHotkeys({
     max_toggle  = { mash, "M" },
 })
 
-SpoonInstall:installSpoonFromRepo('HCalendar')
-local HCalendar = hs.loadSpoon('HCalendar')
+-- SpoonInstall:installSpoonFromRepo('HCalendar')
+-- local HCalendar = hs.loadSpoon('HCalendar')
 
 -- SpoonInstall:installSpoonFromRepo('MountedVolumes')
 -- local MountedVolumes = hs.loadSpoon('MountedVolumes')
